@@ -33,13 +33,11 @@ func (this *HomeController) Get() {
 
 	xxxMap, err := readFile("roa" + this.Ctx.Input.Param(":path") + "_get.json")
 	if err != nil {
-		beego.Info("ReadFile:" + err.Error())
 		this.Data["json"] = "ROA not Support"
-		this.ServeJson()
 	} else {
 		this.Data["json"] = xxxMap
-		this.ServeJson()
 	}
+	this.ServeJson()
 }
 
 func main() {
